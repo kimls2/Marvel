@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Marvel Comics</string>
+    <string name="comic_screen">Comic Screen</string>
+    <string name="details_screen">Details Screen</string>
+
+    <string name="search_menu">Search</string>
+
+    <string name="description">Description</string>
+
+    <!-- Navigation drawer -->
+    <string name="nav_home">Home</string>
+    <string name="nav_grid">Grid Style</string>
+
+
+</resources>

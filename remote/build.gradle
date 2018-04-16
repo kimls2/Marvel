@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 23
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    api project(":base")
+    implementation project(":data")
+
+    api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+
+    api "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+}

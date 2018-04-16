@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#57384C</color>
+    <color name="colorPrimaryDark">#57384C</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="darkBlack">#212121</color>
+    <color name="pattensBlue">#DBE1E7</color>
+    <color name="floralWhite">#FCFAF5</color>
+    <color name="trans">#00000000</color>
+
+</resources>

@@ -1,0 +1,131 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "7ce3ecd8b35e8d0cc8ecb6086f1d66cb",
+    "entities": [
+      {
+        "tableName": "comics",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `marvel_comic_id` INTEGER, `title` TEXT, `format` TEXT, `description` TEXT, `thumbnail_path` TEXT, `thumbnail_extension` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marvelComicId",
+            "columnName": "marvel_comic_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "format",
+            "columnName": "format",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thumbnailPath",
+            "columnName": "thumbnail_path",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thumbnailFileType",
+            "columnName": "thumbnail_extension",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_comics_marvel_comic_id",
+            "unique": true,
+            "columnNames": [
+              "marvel_comic_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_comics_marvel_comic_id` ON `${TABLE_NAME}` (`marvel_comic_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "digital_comics",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `comic_id` INTEGER NOT NULL, `page` INTEGER NOT NULL, FOREIGN KEY(`comic_id`) REFERENCES `comics`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "comicId",
+            "columnName": "comic_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "page",
+            "columnName": "page",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_digital_comics_comic_id",
+            "unique": true,
+            "columnNames": [
+              "comic_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_digital_comics_comic_id` ON `${TABLE_NAME}` (`comic_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "comics",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "comic_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7ce3ecd8b35e8d0cc8ecb6086f1d66cb\")"
+    ]
+  }
+}

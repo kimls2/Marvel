@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 23
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    api project(":base")
+
+    implementation "android.arch.persistence.room:runtime:${versions.arch_room}"
+    implementation "android.arch.persistence.room:rxjava2:${versions.arch_room}"
+    kapt "android.arch.persistence.room:compiler:${versions.arch_room}"
+
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+
+
+}

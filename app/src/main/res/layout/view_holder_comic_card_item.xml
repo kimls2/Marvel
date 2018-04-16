@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="comic"
+            type="me.yisuk.kim.marvel.data.entities.MarvelComic" />
+
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{clickListener}"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="5dp"
+        app:contentPadding="10dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionGroup="true">
+
+            <ImageView
+                android:id="@+id/iv_comic"
+                android:layout_width="75dp"
+                android:layout_height="112dp"
+                android:marvelThumbnail="@{comic.thumbnailPathWithXlargeSize}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/portrait_xlarge" />
+
+            <TextView
+                android:id="@+id/tv_comic_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{comic.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_comic"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Spider Man" />
+
+            <TextView
+                android:id="@+id/tv_comic_format"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{comic.format}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                app:layout_constraintStart_toEndOf="@id/iv_comic"
+                app:layout_constraintTop_toBottomOf="@id/tv_comic_title"
+                tools:text="Digital Comic" />
+
+            <TextView
+                android:id="@+id/tv_comic_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Author Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                app:layout_constraintStart_toEndOf="@id/iv_comic"
+                app:layout_constraintTop_toBottomOf="@id/tv_comic_format" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@android:drawable/star_on"
+                android:gravity="center"
+                android:text="8.7"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toStartOf="@id/tv_page_count"
+                app:layout_constraintStart_toEndOf="@id/iv_comic"
+                app:layout_constraintTop_toBottomOf="@id/tv_comic_author" />
+
+            <TextView
+                android:id="@+id/tv_page_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="8 pages"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_rating"
+                app:layout_constraintStart_toEndOf="@+id/tv_rating" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="\$7,99"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_rating"
+                app:layout_constraintStart_toEndOf="@id/tv_page_count" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>

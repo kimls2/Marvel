@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    app:statusBarBackground="@null">
+
+    <ImageView
+        android:id="@+id/details_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/marvel_bg" />
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/details_appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:background="@null"
+        android:fitsSystemWindows="true"
+        android:stateListAnimator="@null"
+        android:theme="?attr/actionBarTheme">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/details_ctl"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/details_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="?attr/homeAsUpIndicator" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/round_rect_background"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:transitionName="poster">
+
+            <ImageView
+                android:id="@+id/details_poster"
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:elevation="4dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_detail_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/details_poster"
+                tools:text="Spider man" />
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:numStars="5"
+                android:rating="4.5"
+                app:layout_constraintStart_toEndOf="@id/details_poster"
+                app:layout_constraintTop_toBottomOf="@id/tv_detail_title" />
+
+            <TextView
+                android:id="@+id/tv_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="based on 439,507 reviews"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                app:layout_constraintStart_toEndOf="@id/details_poster"
+                app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:text="WATCH"
+                android:textColor="@color/floralWhite"
+                app:layout_constraintStart_toEndOf="@id/details_poster"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_count" />
+
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:text="@string/description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintTop_toBottomOf="@id/details_poster" />
+
+            <TextView
+                android:id="@+id/tv_detail_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                tools:text="Hawkeye learns that sometimes even super heroes need help from their friends. Especially if your friends happen to be the mighty Avengers." />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>
