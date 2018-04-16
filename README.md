@@ -1,4 +1,4 @@
-# Marvel
+# Marvel Comics
 - Using https://developer.marvel.com API
 - Written in Kotlin.
 - Uses RxJava2
