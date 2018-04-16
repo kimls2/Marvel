@@ -1,4 +1,6 @@
 # Marvel Comics
+This app shows the list of Marvel Comics and details.
+
 - Using https://developer.marvel.com API
 - Written in Kotlin.
 - Uses RxJava2
