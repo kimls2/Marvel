@@ -2,6 +2,7 @@ package me.yisuk.kim.marvel.comicdetails.details
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -59,6 +60,9 @@ class ComicDetailsFragment : BaseFragment<ComicDetailsFragmentViewModel>() {
             it.supportActionBar?.title = ""
         }
         details_toolbar.setNavigationOnClickListener { activity?.onBackPressed() }
+        btn_watch.setOnClickListener {
+            Snackbar.make(details_coordinator, "Watch screen needs to be implemented.", Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
